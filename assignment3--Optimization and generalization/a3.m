@@ -146,6 +146,7 @@ function ret = d_loss_by_d_model(model, data, wd_coefficient)
   % This is the only function that you're expected to change. Right now, it just returns a lot of zeros, which is obviously not the correct output. Your job is to replace that by a correct computation.
   ret.input_to_hid = model.input_to_hid * 0;
   ret.hid_to_class = model.hid_to_class * 0;
+  
   %%%%%%%%%%%%%%%%
   % chenw not code my self
   %%%%%%%%%%%%%%%%
@@ -172,6 +173,7 @@ function ret = d_loss_by_d_model(model, data, wd_coefficient)
     wd_input_to_hid = model.input_to_hid .* wd_coefficient;
   	ret.input_to_hid = (sum_input_to_hid ./m + wd_input_to_hid); 
     ret.hid_to_class = (sum_hid_to_class ./m + wd_hid_to_class);
+    % chenw add end
 end
 
 function ret = model_to_theta(model)
